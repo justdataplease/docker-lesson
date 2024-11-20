@@ -1,0 +1,9 @@
+docker-compose up -d --build;
+
+docker logs time-writer;
+
+docker exec -it postgres-db psql -U user -d timedb;
+
+SELECT * FROM time_log;
+
+docker-compose down;

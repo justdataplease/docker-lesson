@@ -17,7 +17,7 @@ EXPOSE 5432
 ## Steps to Use the Custom Dockerfile
 
 1. **Save the Dockerfile**:
-   Save the above `Dockerfile` in a folder. If using an `init.sql` file, ensure it’s in the same directory.
+   Save the above `Dockerfile`.
 
 2. **Build the Docker Image**:
    Build the custom image:
@@ -43,7 +43,9 @@ EXPOSE 5432
 5. **Access the PostgreSQL Database**:
    Connect to the database using a PostgreSQL client, like `psql`:
    ```bash
-   psql -h localhost -U myuser -d mydatabase
+   psql -h localhost -U myuser -d mydatabase;
+
+   SELECT CURRENT_DATE;
    ```
 
 6. **Stop and Remove the Container (Optional)**:
@@ -53,5 +55,7 @@ EXPOSE 5432
    ```
 
 ---
+sudo apt update
+sudo apt install postgresql-client-15
 
 This approach allows for custom database initialization and reusable configurations.

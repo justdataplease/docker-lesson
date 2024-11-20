@@ -51,19 +51,9 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  duckdb:
-    image: mwirkk/duckdb:latest
-    container_name: motherduck
-    command: ["tail", "-f", "/dev/null"] # Keep the container running
-    volumes:
-      - duckdb_data:/duckdb
-    ports:
-      - "8000:8000" # Example port for future services if needed
-
 volumes:
   postgres_data_1:
   postgres_data_2:
   postgres_data_3:
   mysql_data:
-  duckdb_data:
 ```
