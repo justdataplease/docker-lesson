@@ -1,6 +1,10 @@
+from dotenv import load_dotenv
 import os
 import psycopg2
 from datetime import datetime
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Environment variables for database connection
 DB_HOST = os.getenv("POSTGRES_HOST")
@@ -8,6 +12,7 @@ DB_PORT = os.getenv("POSTGRES_PORT")
 DB_NAME = os.getenv("POSTGRES_DB")
 DB_USER = os.getenv("POSTGRES_USER")
 DB_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+
 
 # Establish a connection to the PostgreSQL database
 def connect_to_db():

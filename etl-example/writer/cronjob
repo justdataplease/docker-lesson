@@ -1,1 +1,1 @@
-* * * * * /usr/bin/python /app/writer.py >> /var/log/cron.log 2>&1
+* * * * * /usr/local/bin/python /app/writer.py >> /logs/cron.log 2>&1

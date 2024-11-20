@@ -2,24 +2,29 @@ version: "3.9"
 
 services:
   db:
-    image: postgres:15
+    image: postgres:16
     container_name: postgres-db
     env_file:
-      - .env
+      - ./writer/.env
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d timedb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   writer:
     build:
       context: ./writer
     container_name: time-writer
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     env_file:
-      - .env
+      - ./writer/.env
 
 volumes:
   postgres_data:
-``
