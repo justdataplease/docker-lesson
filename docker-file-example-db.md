@@ -10,22 +10,8 @@ ENV POSTGRES_USER=myuser
 ENV POSTGRES_PASSWORD=mypassword
 ENV POSTGRES_DB=mydatabase
 
-# Copy custom initialization scripts into the container
-# Any `.sql` or `.sh` files in this directory will run during container initialization
-COPY init.sql /docker-entrypoint-initdb.d/
-
 # Expose PostgreSQL's default port
 EXPOSE 5432
-```
-
-## Example `init.sql` (Optional)
-```sql
-CREATE TABLE example (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-INSERT INTO example (name) VALUES ('Sample Data');
 ```
 
 ## Steps to Use the Custom Dockerfile
