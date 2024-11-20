@@ -1,4 +1,4 @@
-`
+```
 version: "3.9"
 
 services:
@@ -66,4 +66,4 @@ volumes:
   postgres_data_3:
   mysql_data:
   duckdb_data:
-  `
+```
